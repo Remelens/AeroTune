@@ -1,0 +1,77 @@
+:root{
+    --ic-play:url(./svg/play-dark.svg);
+    --ic-stop:url(./svg/stop-dark.svg);
+    --ic-menu:url(./svg/menu-dark.svg);
+    --ic-next:url(./svg/skip-next-solid-dark.svg);
+    --ic-prev:url(./svg/skip-previous-solid-dark.svg);
+    --ic-sound-max:url(./svg/sound-max-dark.svg);
+    --ic-sound-min:url(./svg/sound-min-dark.svg);
+    --ic-sound-mute:url(./svg/sound-mute-dark.svg);
+    --ic-loop:url(./svg/loop-dark.svg);
+    --ic-loop-once:url(./svg/loop-once-dark.svg);
+    --ic-random:url(./svg/random-dark.svg);
+}
+@media (prefers-color-scheme:dark){
+    :root{
+        --ic-play:url(./svg/play-light.svg);
+        --ic-stop:url(./svg/stop-light.svg);
+        --ic-menu:url(./svg/menu-light.svg);
+        --ic-next:url(./svg/skip-next-solid-light.svg);
+        --ic-prev:url(./svg/skip-previous-solid-light.svg);
+        --ic-sound-max:url(./svg/sound-max-light.svg);
+        --ic-sound-min:url(./svg/sound-min-light.svg);
+        --ic-sound-mute:url(./svg/sound-mute-light.svg);
+        --ic-loop:url(./svg/loop-light.svg);
+        --ic-loop-once:url(./svg/loop-once-light.svg);
+        --ic-random:url(./svg/random-light.svg);
+    }
+}
+i.at-ic{
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+}
+i.at-ic.ic-play{
+    background:var(--ic-play);
+    background-size:contain;
+}
+i.at-ic.ic-stop{
+    background: var(--ic-stop);
+    background-size:contain;
+}
+i.at-ic.ic-menu{
+    background: var(--ic-menu);
+    background-size:contain;
+}
+i.at-ic.ic-next{
+    background: var(--ic-next);
+    background-size:contain;
+}
+i.at-ic.ic-prev{
+    background: var(--ic-prev);
+    background-size:contain;
+}
+i.at-ic.ic-sound-max{
+    background: var(--ic-sound-max);
+    background-size:contain;
+}
+i.at-ic.ic-sound-min{
+    background: var(--ic-sound-min);
+    background-size:contain;
+}
+i.at-ic.ic-sound-mute{
+    background: var(--ic-sound-mute);
+    background-size:contain;
+}
+i.at-ic.ic-loop{
+    background: var(--ic-loop);
+    background-size:contain;
+}
+i.at-ic.ic-loop-once{
+    background: var(--ic-loop-once);
+    background-size:contain;
+}
+i.at-ic.ic-random{
+    background: var(--ic-random);
+    background-size:contain;
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   width="512"
+   height="512"
+   viewBox="0 0 135.46666 135.46667"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:svg="http://www.w3.org/2000/svg">
+  <g
+     inkscape:label="图层 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <circle
+      class="pcolor"
+       style="fill:none;stroke-width:42.3333;stroke-linecap:round;stroke-linejoin:round;stroke-dasharray:none;stroke-opacity:1"
+       id="path1"
+       cx="67.73333"
+       cy="67.733315"
+       r="42.333332" />
+    <circle
+      class="pcolor-fill"
+       style="fill-opacity:1;"
+       id="path2"
+       cx="67.73333"
+       cy="67.73333"
+       r="8.4666662" />
+  </g>
+  <style>
+  .pcolor{
+  stroke:#222222;
+  }
+  .pcolor-fill{
+  fill:#222222;
+  }
+  @media (prefers-color-scheme: dark) {
+  .pcolor{
+  stroke:#dddddd;
+  }
+  .pcolor-fill{
+  fill:#dddddd;
+  }
+  }
+  </style>
+</svg>

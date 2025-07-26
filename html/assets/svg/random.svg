@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <path d="m 4.255,19.755 15.499972,-15.5 m 0,0 2.8e-5,4.242667 M 19.754972,4.255 h -4.242726" class="pcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="m 4.255,4.255 15.5,15.499972 m 0,0 -4.242667,2.8e-5 m 4.242667,-2.8e-5 v -4.242726" class="pcolor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+  <style>
+     .pcolor{
+     stroke:#222222;
+     }
+     .pcolor-fill{
+     fill:#222222;
+     }
+     @media (prefers-color-scheme: dark) {
+     .pcolor{
+     stroke:#dddddd;
+     }
+     .pcolor-fill{
+     fill:#dddddd;
+     }
+     }
+  </style>
+</svg>

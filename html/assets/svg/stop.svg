@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="800px" height="800px" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+<rect x="6" y="5" width="4" height="14" rx="1" class="pfill"/>
+<rect x="14" y="5" width="4" height="14" rx="1" class="pfill"/>
+<style>
+    .pcolor{
+    stroke:#222222;
+    }
+    .pfill{
+    fill:#222222;
+    }
+    @media (prefers-color-scheme: dark) {
+    .pcolor{
+    stroke:#dddddd;
+    }
+    .pfill{
+    fill:#dddddd;
+    }
+    }
+</style>
+</svg>

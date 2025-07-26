@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>AeroTune Player</title>
+        <link rel="stylesheet" href="assets/outerplayer_style.css">
+        <link rel="stylesheet" href="assets/icons.css">
+        <link rel="stylesheet" href="https://mirrors.sustech.edu.cn/cdnjs/ajax/libs/lxgw-wenkai-screen-webfont/1.7.0/style.min.css" integrity="sha512-uushWJqqsPYQOOyatyQoJ44WljQCC70km/MB94XcZVajojoEWQ7S4DoFMtIh4AqmS0to9mI84jxZHR2aV/OIlA==" crossorigin="anonymous" referrerpolicy="no-referrer">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    </head>
+    <body>
+        <div class="playbox %{PlaylistMode}%" id="playbox">
+            <div class="track-info">
+                <img src="" class="default-album" id="album-art">
+                <div id="track-infos">
+                    <span id="track-title">Σ( ° △ °|||)</span>
+                    <span id="track-artist">Not Initiallized</span>
+                </div>
+            </div>
+            <div class="control-bar">
+                <div class="play-item" id="track-bar"><div id="track-played" style="width:0%;"><div id="track-btn"></div></div></div>
+                <div class="play-item" id="button-bar">
+                    <span id="played-time" class="audio-time">00:00</span>
+                    <div class="btnbar-buttons">
+                        <a class="play-btn" id="btn-prev"><i class="at-ic ic-prev"></i></a>
+                        <a class="play-btn" id="btn-play"><i class="at-ic ic-play"></i></a>
+                        <a class="play-btn" id="btn-next"><i class="at-ic ic-next"></i></a>
+                    </div>
+                    <span id="base-time" class="audio-time">00:00</span>
+                </div>
+                <audio id="playbox-player" %{Loop}%></audio>
+            </div>
+            <div class="playlists">
+                <div class="hr"></div>
+                <div class="playlist-lists" id="playlist-lists">
+                </div>
+            </div>
+        </div>
+        <script src="./assets/outerplayer_script.js"></script>
+        <script>
+        //huh piece of shit
+        //but it works....
+var requestid="%{RequestId}%";
+autoplayMusic=("%{AutoPlay}%"==="true");
+playlistModeEx="%{PlaylistModeEx}%";
+if (playlistMode) {
+    if (playlistModeEx === "album") {
+        getAlbum(requestid, (err, response) => {
+            if (err) {
+                console.error('Error:', err);
+                return;
+            }
+
+            let ret = [];
+            let res = JSON.parse(response);
+            for (let i in res.songs) {
+                ret.push({
+                    id: res.songs[i].id,
+                    title: res.songs[i].name,
+                    artist: res.songs[i].ar.map(artist => artist.name).join('/'),
+                    albumarturl: res.songs[i].al.picUrl
+                });
+            }
+            playlist = ret;
+            playlistIndex = 1;
+            loadPlaylist(playlist);
+            loadMusic(
+                `https://music.163.com/song/media/outer/url?id=${playlist[0].id}.mp3`,
+                playlist[0].title,
+                playlist[0].artist,
+                playlist[0].albumarturl + '?param=1024y1024'
+            );
+        });
+    } else if (playlistModeEx === "playlist") {
+        getPlaylist(requestid, (err, response) => {
+            if (err) {
+                console.error('Error:', err);
+                return;
+            }
+
+            let res = JSON.parse(response).playlist.trackIds;
+            let ret = "ids=[" + res.map(ids => `{"id":${ids.id}}`).join(',') + "]";
+
+            getMusicListDetails(ret, (err, respon) => {
+                if (err) {
+                    console.error('Error:', err);
+                    return;
+                }
+
+                let resp = JSON.parse(respon).songs;
+                let ret2 = [];
+                for (let i in resp) {
+                    ret2.push({  // Fixed: Using ret2 instead of ret
+                        id: resp[i].id,
+                        title: resp[i].name,
+                        artist: resp[i].ar.map(artist => artist.name).join('/'),
+                        albumarturl: resp[i].al.picUrl
+                    });
+                }
+                playlist = ret2;
+                playlistIndex = 1;
+                loadPlaylist(playlist);
+                loadMusic(
+                    `https://music.163.com/song/media/outer/url?id=${playlist[0].id}.mp3`,
+                    playlist[0].title,
+                    playlist[0].artist,
+                    playlist[0].albumarturl + '?param=1024y1024'
+                );
+            });
+        });
+    }
+} else {
+    getMusicDetails(requestid, (err, response) => {
+        if (err) {
+            console.error('Error:', err);
+            return;
+        }
+
+        let music = JSON.parse(response).songs[0];
+        let ar = music.ar.map(artist => artist.name);
+        loadMusic(
+            `https://music.163.com/song/media/outer/url?id=${requestid}.mp3`,
+            music.name,
+            ar.join('/'),
+            music.al.picUrl + '?param=1024y1024'
+        );
+    });
+}
+        </script>
+    </body>
+</html>
