@@ -162,6 +162,8 @@ function loadMusic(url,title,artist,albumarturl=""){
                 { src: albumarturl }
             ]
         });
+         navigator.mediaSession.setActionHandler("previoustrack",loadPrevMusic);
+        navigator.mediaSession.setActionHandler("nexttrack",loadNextMusic);
     }
     if(albumarturl&&albumArt.classList.contains("default-album")){
         albumArt.classList.remove("default-album");
